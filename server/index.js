@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === "devlopment") {
 }
 
 if (process.env.NODE_ENV === "production") {
-      app.use(express.static("../client/build/index.html"));
+      app.use(express.static(__dirname, "../client/build"));
 }
 
 app.use('/cards', createCard)
