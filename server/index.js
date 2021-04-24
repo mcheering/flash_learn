@@ -7,22 +7,17 @@ import createCard from './routes/createCard.js';
 import userRoutes from './routes/users.js';
 import dotenv from 'dotenv';
 
+dotenv.config()
 const app = express();
 
-dotenv.config();
 
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
-
-app.get('/', (req, res) => {
-      res.send("Welcome to Flash Learn API")
-})
-
 app.use('/cards', createCard)
 app.use('/user', userRoutes)
-
+//MongoDB connection
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
