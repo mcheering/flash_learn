@@ -46,13 +46,11 @@ export default (currentState = { cards: [], subjects: [] }, action) => {
                   return { ...currentState, subjects: action.payload };
             case CREATE:
                   return { ...currentState, subjects: [...currentState.subjects, action.payload.topic], cards: [...currentState.cards, action.payload] }
-            // case CREATEFLASHCARD:
-            //       return { ...currentState, cards: currentState.cards.map((card) => card._id === action.payload.id) }
             case DELETE:
                   // return {what you want the new state to be, exactly how you want it to look}
                   return { ...currentState, cards: currentState.cards.filter((card) => card._id !== action.payload.id) }
             case UPDATE:
-                  return { ...currentState, cards: currentState.cards.map((card) => card._id === action.payload.id ? action.payload : card) };
+                  return { ...currentState, cards: currentState.cards.map((card) => card._id === action.payload.id ? action.payload : card), subjects: [...currentState.subjects, action.payload.topic] };
             default:
                   return currentState;
       }

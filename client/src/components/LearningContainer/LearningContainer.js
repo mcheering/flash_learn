@@ -3,7 +3,7 @@ import useStyles from './styles';
 import { Card, CardContent, Button, Typography, CircularProgress, Paper, TextField, } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCardForTopic } from '../../actions/createCards';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { deleteCard, updateCard, createCard } from '../../actions/createCards';
 
 const LearningContainer = ({ currentId, setCurrentId }) => {
