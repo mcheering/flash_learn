@@ -17,14 +17,14 @@ const app = express();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+if (process.env.NODE_ENV === "production") {
+      app.use(express.static(path.resolve("../client/build")))
+}
 app.use('/cards', createCard)
 app.use('/user', userRoutes)
 //MongoDB connection
 const PORT = process.env.PORT || 5000;
 
-app.use(function (req, res) {
-      res.sendFile(path.resolve("../client/build", "index.html"));
-});
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
       .then(() => {
             app.listen(PORT, () => {
@@ -32,7 +32,5 @@ mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnified
             })
       })
       .catch((error) => console.log(error.message));
-if (process.env.NODE_ENV === "production") {
-      app.use(express.static(path.resolve("../client/build")))
-}
+
 mongoose.set('useFindAndModify', false);
