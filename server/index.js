@@ -23,10 +23,8 @@ app.use('/user', userRoutes)
 const PORT = process.env.PORT || 5000;
 
 app.use(function (req, res) {
-      res.sendFile(path.join(import.meta.url, "../client/public/index.html"));
+      res.sendFile(path.resolve("../client/public", "index.html"));
 });
-console.log(import.meta.url)
-
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
       .then(() => {
             app.listen(PORT, () => {
