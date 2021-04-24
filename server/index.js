@@ -27,5 +27,7 @@ mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnified
             })
       })
       .catch((error) => console.log(error.message));
-
+if (process.env.NODE_ENV === "production") {
+      app.use(express.static("../client/build"))
+}
 mongoose.set('useFindAndModify', false);
