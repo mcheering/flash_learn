@@ -6,7 +6,8 @@ import cors from 'cors';
 
 import createCard from './routes/createCard.js';
 import userRoutes from './routes/users.js';
-import './env.js'
+import dotenv from 'dotenv'
+dotenv.config({ silent: true })
 
 const app = express();
 
@@ -21,7 +22,7 @@ app.use('/user', userRoutes)
 const PORT = process.env.PORT || 5000;
 
 app.use(function (req, res) {
-      res.sendFile(path.join(__dirname, "../client/public/index.html"));
+      res.sendFile("../client/public/index.html");
 });
 console.log(process.env.CONNECTION_URL)
 
