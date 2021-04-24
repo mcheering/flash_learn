@@ -23,7 +23,7 @@ app.use('/user', userRoutes)
 const PORT = process.env.PORT || 5000;
 
 app.use(function (req, res) {
-      res.sendFile(path.resolve("../client/public", "index.html"));
+      res.sendFile(path.resolve("../client/build", "index.html"));
 });
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
       .then(() => {
@@ -33,6 +33,6 @@ mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnified
       })
       .catch((error) => console.log(error.message));
 if (process.env.NODE_ENV === "production") {
-      app.use(express.static("../client/build"))
+      app.use(express.static(path.resolve("../client/build")))
 }
 mongoose.set('useFindAndModify', false);
