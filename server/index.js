@@ -4,22 +4,35 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+
 
 import createCard from './routes/createCard.js';
 import userRoutes from './routes/users.js';
 import dotenv from 'dotenv'
-dotenv.config({ silent: true })
+dotenv.config({ silent: true }, { path: path.resolve(__dirname, '../.env') })
 
 const app = express();
 
-
+console.log(process.env.CONNECTION_URL)
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
-if (process.env.NODE_ENV === "production") {
-      app.use(express.static(path.resolve("../client/build")))
+if (process.env.NODE_ENV === "devlopment") {
+      app.use(function (req, res) {
+            res.sendFile(path.join(__dirname, "../client/public/index.html"));
+      });
 }
+
+if (process.env.NODE_ENV === "production") {
+      app.use(express.static("../client/build"));
+}
+
 app.use('/cards', createCard)
 app.use('/user', userRoutes)
 //MongoDB connection
