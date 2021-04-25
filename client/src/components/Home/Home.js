@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Container, Grow, Grid } from '@material-ui/core';
 import Subjects from '../Subjects/Subjects';
 import Form from '../Form/Form';
-import { getCards, aggregateSubjects } from '../../actions/createCards';
+import { aggregateSubjects } from '../../actions/createCards';
 
 
 const Home = () => {
@@ -14,7 +14,6 @@ const Home = () => {
       const dispatch = useDispatch();
 
       useEffect(() => {
-            // getCards()(dispatch)
             aggregateSubjects()(dispatch)
 
       }, [currentId, dispatch]);

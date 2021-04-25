@@ -1,23 +1,22 @@
 
 import React from 'react';
-import { Card, Typography, Button } from '@material-ui/core/';
-import { useDispatch } from 'react-redux';
+import { Typography, Button } from '@material-ui/core/';
 import { Link } from 'react-router-dom'
 
 import useStyles from './styles';
 
 const Subject = ({ subject }) => {
-      const dispatch = useDispatch();
       const classes = useStyles();
 
       return (
             <Button className={classes.btnStyle} component={Link} style={{ flexGrow: 1, float: 'right' }} to={`/learn/${subject}`} >
-                  <Typography className={classes.title} gutterBottom component="h2">
-                        <div className="subjectActionContainer">
-                              {subject}
-                        </div>
+                  <Button className={classes.subject} color="primary" variant="contained"  item xs={12} sm={12} md={12}>
 
-                  </Typography>
+                        <Typography className={classes.title} gutterBottom component="h2">{subject}</Typography>
+
+                  </Button>
+
+
 
             </Button >
 

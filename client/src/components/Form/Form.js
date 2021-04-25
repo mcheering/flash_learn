@@ -74,8 +74,8 @@ const Form = ({ currentId, setCurrentId }) => {
                               value={cardData.definition}
                               onChange={(event) => setCardData({ ...cardData, definition: event.target.value })} />
                         <div className={classes.fileInput}>
-                              <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-                              <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
+                              <Button className={classes.submitbutton} variant="contained" size="large" type="submit" fullWidth>Submit</Button>
+                              <Button variant="contained" className={classes.clearbutton} size="small" onClick={clear} fullWidth>Clear</Button>
 
                         </div>
                   </form>

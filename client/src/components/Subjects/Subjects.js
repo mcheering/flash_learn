@@ -7,8 +7,6 @@ import Subject from './Subject/Subject'
 const Subjects = () => {
       const currentState = useSelector((state) => state.createCards)
       const classes = useStyles();
-      console.log("current subject", currentState.subjects)
-
 
       return (
             !currentState.subjects.length ? <CircularProgress /> : (

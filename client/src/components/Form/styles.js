@@ -18,8 +18,14 @@ export default makeStyles((theme) => ({
             width: '97%',
             margin: '10px 0',
       },
-      buttonSubmit: {
-            marginBottom: 10,
-            marginTop: 10
+      submitbutton: {
+            marginTop: '1rem',
+            backgroundColor: '#3490D5',
+            color: 'white'
       },
+      clearbutton: {
+            marginTop: '1rem',
+            backgroundColor: '#757575',
+            color: 'white'
+      }
 }));
