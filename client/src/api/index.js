@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = process.env.NODE_ENV === "production" ? "/auth" : "http://localhost:5000/auth"
+const baseURL = process.env.NODE_ENV === "production" ? "/" : "http://localhost:5000/"
 
 
 const API = axios.create({
