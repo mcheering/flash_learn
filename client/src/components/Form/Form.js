@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useStyles from './styles';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
-import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
 import { createCard, updateCard } from '../../actions/createCards';
 
@@ -9,7 +8,7 @@ import { createCard, updateCard } from '../../actions/createCards';
 
 const Form = ({ currentId, setCurrentId }) => {
       const [cardData, setCardData] = useState({
-            topic: '', term: '', definition: '', selectedFile: ''
+            topic: '', term: '', definition: ''
       })
 
       const card = useSelector((state) => (currentId ? state.createCards.find((card) => card._id === currentId) : null));
@@ -24,7 +23,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
       const clear = () => {
             setCurrentId(0);
-            setCardData({ topic: '', term: '', definition: '', selectedFile: '' });
+            setCardData({ topic: '', term: '', definition: '' });
       };
 
       const handleSubmit = (event) => {
@@ -75,11 +74,6 @@ const Form = ({ currentId, setCurrentId }) => {
                               value={cardData.definition}
                               onChange={(event) => setCardData({ ...cardData, definition: event.target.value })} />
                         <div className={classes.fileInput}>
-                              <FileBase
-                                    type="file"
-                                    multiple={false}
-                                    onDone={({ base64 }) => setCardData({ ...cardData, selectedFile: base64 })}
-                              />
                               <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                               <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
 
