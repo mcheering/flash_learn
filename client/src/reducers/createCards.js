@@ -8,7 +8,7 @@ export default (currentState = { cards: [], subjects: [] }, action) => {
             case AGGREGATE:
                   return { ...currentState, subjects: action.payload };
             case CREATE:
-                  return { ...currentState, subjects: [...currentState.subjects, action.payload.topic], cards: [...currentState.cards, action.payload] }
+                  return { ...currentState, /*subjects: [...currentState.subjects, action.payload.topic],*/ cards: [...currentState.cards, action.payload] }
             case DELETE:
                   // return {what you want the new state to be, exactly how you want it to look}
                   return { ...currentState, cards: currentState.cards.filter((card) => card._id !== action.payload.id) }
