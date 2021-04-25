@@ -22,7 +22,6 @@ export const createCard = (req, res) => {
             topic: req.body.topic,
             term: req.body.term,
             definition: req.body.definition,
-            selectedFile: req.body.selectedFile,
             createdAt: new Date().toISOString()
       })
 

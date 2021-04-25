@@ -6,6 +6,7 @@ import useStyles from './styles';
 import logo from '../../images/logo_transparent_background.png';
 import decode from 'jwt-decode';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
 
 
 
@@ -51,7 +52,7 @@ const Navbar = () => {
                                           <Button className={classes.logout} onClick={logout}><ExitToAppRoundedIcon /></Button>
                                     </div>
                               ) : (
-                                          null
+                                          <Button className={classes.logout} onClick={logout}><VpnKeyIcon /></Button>
                                     )}
                         </div>
 

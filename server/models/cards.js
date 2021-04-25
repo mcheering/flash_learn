@@ -5,8 +5,7 @@ const cardSchema = mongoose.Schema({
       name: String,
       topic: String,
       term: String,
-      definition: String,
-      selectedFile: String
+      definition: String
 });
 
 const Card = mongoose.model('Card', cardSchema);

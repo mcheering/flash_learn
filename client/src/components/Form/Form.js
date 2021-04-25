@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import useStyles from './styles';
-import { TextField, Button, Typography, Paper } from '@material-ui/core';
+
+import { TextField, Button, Typography, Paper, FormControl } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { createCard, updateCard } from '../../actions/createCards';
+import { createCard, updateCard, aggregateSubjects } from '../../actions/createCards';
 
 
 
@@ -26,11 +27,15 @@ const Form = ({ currentId, setCurrentId }) => {
             setCardData({ topic: '', term: '', definition: '' });
       };
 
+
+
       const handleSubmit = (event) => {
-            event.preventDefault();
+            event.preventDefault()
             if (currentId === 0) {
                   createCard({ ...cardData, name: user?.result?.name, cardUserId: user?.result?._id })(dispatch);
+                  aggregateSubjects()
                   clear();
+
             } else {
                   updateCard(currentId, { ...cardData, name: user?.result?.name, cardUserId: user?.result?._id })(dispatch);
                   clear();
@@ -50,13 +55,14 @@ const Form = ({ currentId, setCurrentId }) => {
       }
       return (
             <Paper className={classes.paper}>
-                  <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
+                  <FormControl autoComplete="off" className={`${classes.root} ${classes.form}`}>
                         <Typography variant="h6">{currentId ? 'Editing' : 'Creating'} a Card</Typography>
                         <TextField
                               name="topic"
                               variant="outlined"
                               label="Topic"
                               fullWidth
+                              required
                               value={cardData.topic}
                               onChange={(event) => setCardData({ ...cardData, topic: event.target.value.trim() })} />
                         <TextField
@@ -64,6 +70,7 @@ const Form = ({ currentId, setCurrentId }) => {
                               variant="outlined"
                               label="Term"
                               fullWidth
+                              required
                               value={cardData.term}
                               onChange={(event) => setCardData({ ...cardData, term: event.target.value })} />
                         <TextField
@@ -71,14 +78,15 @@ const Form = ({ currentId, setCurrentId }) => {
                               variant="outlined"
                               label="Definition"
                               fullWidth
+                              required
                               value={cardData.definition}
                               onChange={(event) => setCardData({ ...cardData, definition: event.target.value })} />
                         <div className={classes.fileInput}>
-                              <Button className={classes.submitbutton} variant="contained" size="large" type="submit" fullWidth>Submit</Button>
+                              <Button className={classes.submitbutton} variant="contained" size="large" type="submit" fullWidth onClick={handleSubmit}>Submit</Button>
                               <Button variant="contained" className={classes.clearbutton} size="small" onClick={clear} fullWidth>Clear</Button>
 
                         </div>
-                  </form>
+                  </FormControl>
             </Paper>
       )
 }

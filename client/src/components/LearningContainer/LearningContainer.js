@@ -27,6 +27,20 @@ const LearningContainer = ({ currentId, setCurrentId }) => {
       const user = JSON.parse(localStorage.getItem('profile'));
 
 
+      const deleteAndChangeIndex = () => {
+            if (currentCardIndex === currentState.cards.length - 1) {
+
+                  deleteCard(currentState.cards[currentCardIndex]._id)(dispatch)
+                  decrementIndex()
+            } else if (currentCardIndex === 0) {
+                  deleteCard(currentState.cards[currentCardIndex]._id)(dispatch)
+                  setCurrentCardIndex(0)
+            } else {
+                  deleteCard(currentState.cards[currentCardIndex]._id)(dispatch)
+            }
+
+      }
+
       useEffect(() => {
             if (card) setCardData(card);
       }, [card]);
@@ -146,7 +160,7 @@ const LearningContainer = ({ currentId, setCurrentId }) => {
 
                                     <Button><HighlightOffRoundedIcon /></Button>
                                     <Button><CheckCircleOutlineRoundedIcon /></Button>
-                                    <Button onClick={() => deleteCard(currentState.cards[currentCardIndex]._id)(dispatch)}><DeleteForeverRoundedIcon /></Button>
+                                    <Button onClick={() => deleteAndChangeIndex()}><DeleteForeverRoundedIcon /></Button>
                               </div>
 
 
