@@ -18,27 +18,32 @@ export default makeStyles((theme) => ({
             padding: '1rem',
             boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
             minWidth: '60%',
-            maxWidth: '100%'
+            maxWidth: '100%',
+            alignItems: 'center'
       },
       paper: {
             margin: '1rem',
             padding: '1rem',
             boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
             minWidth: '40%',
-            maxWidth: '100%'
+            maxWidth: '100%',
+            alignItems: 'center'
       },
       submitbutton: {
             marginTop: '1rem',
             backgroundColor: '#3490D5',
-            color: 'white'
+            color: 'white',
+            alignSelf: 'center'
       },
       clearbutton: {
             marginTop: '1rem',
             backgroundColor: '#757575',
-            color: 'white'
+            color: 'white',
+            alignSelf: 'center'
       },
       textfield: {
-            marginTop: '1rem'
+            marginTop: '1rem',
+            alignSelf: 'center'
       },
       flipbutton: {
             margin: 'auto',

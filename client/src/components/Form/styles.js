@@ -8,20 +8,21 @@ export default makeStyles((theme) => ({
       },
       paper: {
             padding: theme.spacing(2),
+            alignItems: 'center'
+      },
+      textfield: {
+            margin: 'auto'
       },
       form: {
             display: 'flex',
             flexWrap: 'wrap',
-            justifyContent: 'center',
-      },
-      fileInput: {
-            width: '97%',
-            margin: '10px 0',
+            alignItems: 'center',
+            textAlign: 'center'
       },
       submitbutton: {
             marginTop: '1rem',
             backgroundColor: '#3490D5',
-            color: 'white'
+            color: 'white',
       },
       clearbutton: {
             marginTop: '1rem',
