@@ -18,8 +18,6 @@ dotenv.config({ silent: true }, { path: path.resolve(__dirname, '../.env') })
 
 const app = express();
 
-console.log(process.env.CONNECTION_URL)
-
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
@@ -30,7 +28,7 @@ if (process.env.NODE_ENV === "devlopment") {
 }
 
 if (process.env.NODE_ENV === "production") {
-      app.use(express.static(__dirname, "../client/build"));
+      app.use(express.static(__dirname, "../client/build/index.html"));
 }
 
 app.use('/cards', createCard)
