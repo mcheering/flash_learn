@@ -11,10 +11,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 
 
-import createCard from './routes/createCard.js';
-import userRoutes from './routes/users.js';
+import createCard from './server/routes/createCard.js';
+import userRoutes from './server/routes/users.js';
 import dotenv from 'dotenv'
-dotenv.config({ silent: true }, { path: path.resolve(__dirname, '../.env') })
+dotenv.config({ silent: true }, { path: path.resolve(__dirname, './.env') })
 
 const app = express();
 
@@ -30,7 +30,7 @@ app.use(cors());
 }*/
 
 if (process.env.NODE_ENV === "production") {
-      app.use(express.static(__dirname, "../client/build"));
+      app.use(express.static(__dirname, "./client/build/index.html"));
 }
 
 app.use('/cards', createCard)
