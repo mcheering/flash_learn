@@ -6,7 +6,7 @@
   "type": "module",
   "homepage": "/build",
   "scripts": {
-    "start": "if-env NODE_ENV='production' && npm run start:prod || npm run start:dev",
+    "start": "node ./server/index.js",
     "start:prod": "node ./server/index.js",
     "start:dev": "concurrently \"nodemon ./server/index.js --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
