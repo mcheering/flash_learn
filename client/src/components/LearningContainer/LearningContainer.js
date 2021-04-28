@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCardForTopic } from '../../actions/createCards';
 import { useParams } from 'react-router-dom';
 import { deleteCard, updateCard, createCard } from '../../actions/createCards';
-import CheckCircleOutlineRoundedIcon from '@material-ui/icons/CheckCircleOutlineRounded';
-import HighlightOffRoundedIcon from '@material-ui/icons/HighlightOffRounded';
 import DeleteForeverRoundedIcon from '@material-ui/icons/DeleteForeverRounded';
 import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded';
@@ -89,65 +87,6 @@ const LearningContainer = ({ currentId, setCurrentId }) => {
             }
       }
 
-      const wordArr = []
-
-
-      const createWordBank = () => {
-            for (let i = 0; i < currentState.cards.length; i++) {
-                  let flashCardObj = {}
-                  flashCardObj["term"] = currentState.cards[i].term
-                  flashCardObj["def"] = currentState.cards[i].definition
-                  wordArr.push(flashCardObj)
-            }
-      }
-
-      createWordBank()
-      console.log(wordArr)
-
-
-      const incorrectArr = []
-
-      const populateIncrrectArr = (incorrectWord) => {
-            incorrectArr.push(incorrectWord)
-            return incorrectArr
-      }
-
-      console.log(incorrectArr)
-
-      const removeCorrectWord = (word) => {
-            wordArr.filter(word => word !== wordArr[currentCardIndex].term)
-            return wordArr
-
-      }
-      console.log(wordArr)
-
-      const getOccurance = (array, value) => {
-            let count = 0
-            array.forEach((v) => (v === value && count++))
-            return count
-      }
-
-      const loopIncorrectArray = (incorrectArr) => {
-            const occuranceArray = []
-            for (let i = 0; i < incorrectArr.length; i++) {
-                  const value = incorrectArr[i]
-                  const occuranceObj = {}
-                  occuranceObj["word"] = value
-                  occuranceObj["frequency"] = getOccurance(incorrectArr, value)
-                  occuranceArray.push(occuranceObj)
-                  const uniqueOccuranceArray = []
-                  occuranceArray.forEach((value) => {
-                        if (!uniqueOccuranceArray.includes(value)) {
-                              uniqueOccuranceArray.push(value)
-                        }
-                  })
-                  console.log(uniqueOccuranceArray)
-            }
-            console.log(occuranceArray)
-            return occuranceArray
-      }
-
-      loopIncorrectArray(incorrectArr)
 
       return (
             !currentState.cards.length ? <CircularProgress /> : (
@@ -204,8 +143,8 @@ const LearningContainer = ({ currentId, setCurrentId }) => {
                                     <div style={{ disiplay: 'flex', flexDirection: 'column', margin: '0.5 2rem' }}>
                                           <CardContent variant="h6">
                                                 {(flipState) ?
-                                                      <Typography style={{ margin: 'auto', textAlign: 'center' }} variant="h6">{wordArr[currentCardIndex].term}</Typography> :
-                                                      <Typography style={{ margin: 'auto', textAlign: 'center' }} variant="h6">{wordArr[currentCardIndex].def}</Typography>}
+                                                      <Typography style={{ margin: 'auto', textAlign: 'center' }} variant="h6">{currentState.cards[currentCardIndex].term}</Typography> :
+                                                      <Typography style={{ margin: 'auto', textAlign: 'center' }} variant="h6">{currentState.cards[currentCardIndex].definition}</Typography>}
                                           </CardContent>
                                           <div style={{ textAlign: "center", marginBottom: '0.8rem' }}>
                                                 <Button className={classes.flipbutton} onClick={() => flip()}><CachedRoundedIcon /></Button>
@@ -219,9 +158,6 @@ const LearningContainer = ({ currentId, setCurrentId }) => {
                                           <Button disabled={false} onClick={() => incrementIndex()}> <NavigateNextRoundedIcon /> </Button> : <Button disabled={true} onClick={() => incrementIndex()}> < NavigateNextRoundedIcon /> </Button>}
                               </div>
                               <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-
-                                    <Button><HighlightOffRoundedIcon onClick={() => populateIncrrectArr(wordArr[currentCardIndex]).term} /></Button>
-                                    <Button><CheckCircleOutlineRoundedIcon onClick={() => removeCorrectWord(wordArr[currentCardIndex].term)} /></Button>
                                     <Button onClick={() => deleteAndChangeIndex()}><DeleteForeverRoundedIcon /></Button>
                               </div>
 
