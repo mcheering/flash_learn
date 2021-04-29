@@ -20,11 +20,11 @@ const Home = () => {
       return (
             <Grow in>
                   <Container>
-                        <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                              <Grid item xs={12} sm={7} >
+                        <Grid container justify="space-between" alignItems="stretch" style={{ flexDirection: 'column' }} spacing={3}>
+                              <Grid item xs={12} sm={12} style={{ margin: 'auto' }}>
                                     <Form currentId={currentId} setCurrentId={setCurrentId} />
                               </Grid>
-                              <Grid item xs={12} sm={4} >
+                              <Grid item xs={12} sm={12} style={{ margin: 'auto' }}>
                                     <Subjects aggregateSubjects={aggregateSubjects} />
                               </Grid>
 

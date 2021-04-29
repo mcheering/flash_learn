@@ -63,7 +63,7 @@ const Form = ({ currentId, setCurrentId }) => {
                               label="Topic"
                               fullWidth
                               value={cardData.topic}
-                              className={classes.textfield}
+                              className={classes.textInput}
                               onChange={(event) => setCardData({ ...cardData, topic: event.target.value.trim() })} />
                         <TextField
                               name="term"
@@ -71,7 +71,7 @@ const Form = ({ currentId, setCurrentId }) => {
                               label="Term"
                               fullWidth
                               value={cardData.term}
-                              className={classes.textfield}
+                              className={classes.textInput}
                               onChange={(event) => setCardData({ ...cardData, term: event.target.value })} />
                         <TextField
                               name="definition"
@@ -79,7 +79,7 @@ const Form = ({ currentId, setCurrentId }) => {
                               label="Definition"
                               fullWidth
                               value={cardData.definition}
-                              className={classes.textfield}
+                              className={classes.textInput}
                               onChange={(event) => setCardData({ ...cardData, definition: event.target.value })} />
                         <div>
                               <Button className={classes.submitbutton} variant="contained" size="large" type="submit" fullWidth>Submit</Button>

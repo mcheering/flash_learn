@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
       appBar: {
-            borderRadius: 15,
+            borderRadius: '6px',
             margin: '0.5rem',
             display: 'flex',
             flexDirection: 'row',
@@ -19,7 +19,7 @@ export default makeStyles((theme) => ({
       },
       toolbar: {
             display: 'flex',
-            flex: "right",
+
             width: '100%'
       },
       profile: {

@@ -40,7 +40,7 @@ export default makeStyles((theme) => ({
             color: 'white',
             alignSelf: 'center'
       },
-      textfield: {
+      textInput: {
             marginTop: '1rem',
             alignSelf: 'center',
             width: '100%'
