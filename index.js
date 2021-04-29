@@ -23,11 +23,11 @@ console.log(process.env.CONNECTION_URL)
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
-if (process.env.NODE_ENV === "devlopment") {
+/*if (process.env.NODE_ENV === "devlopment") {
       app.use(function (req, res) {
             res.sendFile(path.join(__dirname, "../client/public/index.html"));
       });
-}
+}*/
 
 if (process.env.NODE_ENV === "development") {
       app.use(express.static("client/public/index.html"));

@@ -63,6 +63,7 @@ const Form = ({ currentId, setCurrentId }) => {
                               label="Topic"
                               fullWidth
                               required
+                              className={classes.textfield}
                               value={cardData.topic}
                               onChange={(event) => setCardData({ ...cardData, topic: event.target.value.trim() })} />
                         <TextField
@@ -71,6 +72,7 @@ const Form = ({ currentId, setCurrentId }) => {
                               label="Term"
                               fullWidth
                               required
+                              className={classes.textfield}
                               value={cardData.term}
                               onChange={(event) => setCardData({ ...cardData, term: event.target.value })} />
                         <TextField
@@ -79,6 +81,7 @@ const Form = ({ currentId, setCurrentId }) => {
                               label="Definition"
                               fullWidth
                               required
+                              className={classes.textfield}
                               value={cardData.definition}
                               onChange={(event) => setCardData({ ...cardData, definition: event.target.value })} />
                         <div className={classes.fileInput}>
