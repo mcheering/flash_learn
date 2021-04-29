@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useStyles from './styles';
 
-import { TextField, Button, Typography, Paper, FormControl } from '@material-ui/core';
+import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { createCard, updateCard, aggregateSubjects } from '../../actions/createCards';
 
@@ -55,41 +55,38 @@ const Form = ({ currentId, setCurrentId }) => {
       }
       return (
             <Paper className={classes.paper}>
-                  <FormControl autoComplete="off" className={`${classes.root} ${classes.form}`}>
+                  <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                         <Typography variant="h6">{currentId ? 'Editing' : 'Creating'} a Card</Typography>
                         <TextField
                               name="topic"
                               variant="outlined"
                               label="Topic"
                               fullWidth
-                              required
-                              className={classes.textfield}
                               value={cardData.topic}
+                              className={classes.textfield}
                               onChange={(event) => setCardData({ ...cardData, topic: event.target.value.trim() })} />
                         <TextField
                               name="term"
                               variant="outlined"
                               label="Term"
                               fullWidth
-                              required
-                              className={classes.textfield}
                               value={cardData.term}
+                              className={classes.textfield}
                               onChange={(event) => setCardData({ ...cardData, term: event.target.value })} />
                         <TextField
                               name="definition"
                               variant="outlined"
                               label="Definition"
                               fullWidth
-                              required
-                              className={classes.textfield}
                               value={cardData.definition}
+                              className={classes.textfield}
                               onChange={(event) => setCardData({ ...cardData, definition: event.target.value })} />
-                        <div className={classes.fileInput}>
-                              <Button className={classes.submitbutton} variant="contained" size="large" type="submit" fullWidth onClick={handleSubmit}>Submit</Button>
-                              <Button variant="contained" className={classes.clearbutton} size="small" onClick={clear} fullWidth>Clear</Button>
+                        <div>
+                              <Button className={classes.submitbutton} variant="contained" size="large" type="submit" fullWidth>Submit</Button>
+                              <Button className={classes.clearbutton} variant="contained" size="small" onClick={clear} fullWidth>Clear</Button>
 
                         </div>
-                  </FormControl>
+                  </form>
             </Paper>
       )
 }
