@@ -12,9 +12,6 @@ export default makeStyles((theme) => ({
       actionDiv: {
             textAlign: 'center',
       },
-      textfield: {
-            margin: '0.5rem'
-      },
       card: {
             margin: '1rem',
             padding: '1rem',
@@ -45,7 +42,9 @@ export default makeStyles((theme) => ({
       },
       textfield: {
             marginTop: '1rem',
-            alignSelf: 'center'
+            alignSelf: 'center',
+            width: '100%'
+
       },
       flipbutton: {
             margin: 'auto',
