@@ -4,7 +4,7 @@
 Flash Learn is an educational application for students to make flash cards and quiz themselves to develop better vocabulary. 
 
 ## Access
-You can access the application [here](https://ancient-dawn-05615.herokuapp.com/learn/Biology)
+You can access the application [here](https://ancient-dawn-05615.herokuapp.com/auth)
 
 ## Use
 Going to the website, you will be greeted with this screen 
