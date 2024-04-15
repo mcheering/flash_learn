@@ -4,7 +4,7 @@
 Flash Learn is an educational application for students to make flash cards and quiz themselves to develop better vocabulary. 
 
 ## Access
-You can access the application [here](https://ancient-dawn-05615.herokuapp.com)
+You can access the application by copying the repo and starting a development enviroment. Make sure you update the connection string to the database for mongoDB.
 
 ## Use
 Going to the website, you will be greeted with this screen 
